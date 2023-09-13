@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_062621) do
 
   create_table "exchanges", force: :cascade do |t|
     t.decimal "amount"
+    t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
