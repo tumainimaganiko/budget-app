@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :exchanges, foreign_key: 'user_id'
   has_many :groups, foreign_key: 'user_id'
+
+  validates :name, presence: true
 end
