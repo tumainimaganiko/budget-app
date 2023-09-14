@@ -11,5 +11,23 @@ class GroupsController < ApplicationController
     @current_user = current_user
   end
 
-  
+  def create
+    new_category = Group.new(category_params)
+    new_category.user = current_user
+    respond_to do |format|
+      if new_category.save
+        format.html { redirect_to groups_url, notice: 'Food was successfully created.' }
+        format.json { render :index, status: :created, location: new_category }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+
+  def category_params
+    params.require(:group).permit(:name, :icon, user: current_user)
+  end
 end
