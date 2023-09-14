@@ -12,6 +12,11 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="flex items-center justify-end mb-6">
+
+  <%= link_to 'Back', '/', class: "px-4 py-2 border-2 border-black cursor:pointer" %>
+</div>
   <%= form_with url: "/groups", model: @category, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :name %>
