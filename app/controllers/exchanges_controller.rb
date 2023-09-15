@@ -17,14 +17,16 @@ class ExchangesController < ApplicationController
     new_transanction.user = current_user
     respond_to do |format|
       if new_transanction.save
-        format.html { redirect_to exchanges_url, notice: 'Transanction was successfully created.' }
+        group = Group.find_by(id: params[:category])
+        CategoryExchange.create(group: group, exchange: new_transanction)
+        format.html { redirect_to group_path(id: group.id) , notice: 'Transanction was successfully created.' }
         format.json { render :index, status: :created, location: new_transanction }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @transanction.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   private
 
