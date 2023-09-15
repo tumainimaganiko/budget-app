@@ -4,10 +4,14 @@
 <% end %>
 <div class="flex items-center justify-end mb-6">
 
-  <%= link_to 'Add New Category', new_group_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
+  <%= link_to 'Add New Transanction', new_group_exchange_path(@groups.id) , class: "px-4 py-2 border-2 border-black cursor:pointer" %>
 </div>
 <div class="w-10/12 mx-auto">
     <ul>
+       <% @categories.each do |category| %>
+        <% @categories_total += category.exchange.amount%>
+       <%end %>
+       <p> <%= @categories_total %></p>
         <% @categories.each do |category| %>
           <li class="my-6">
           <p><%= category.exchange.name %></p>
