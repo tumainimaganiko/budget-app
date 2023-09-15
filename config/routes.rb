@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'groups#index'
 
-  resources :groups, only: [:index, :show, :new, :create]
-  resources :exchanges, only: [:index, :new, :create]
+  resources :groups, only: [:index, :show, :new, :create] do
+    resources :exchanges, only: [:index, :new, :create]
+  end
 end
