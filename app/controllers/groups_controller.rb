@@ -6,6 +6,10 @@ class GroupsController < ApplicationController
     @current_user = current_user
   end
 
+  def show
+    @categories = current_user.groups.find_by(id: params[:id]).category_exchanges.exchange
+  end
+
   def new
     @category = Group.new
     @current_user = current_user
@@ -16,7 +20,7 @@ class GroupsController < ApplicationController
     new_category.user = current_user
     respond_to do |format|
       if new_category.save
-        format.html { redirect_to groups_url, notice: 'Food was successfully created.' }
+        format.html { redirect_to groups_url, notice: 'Category was successfully created.' }
         format.json { render :index, status: :created, location: new_category }
       else
         format.html { render :new, status: :unprocessable_entity }

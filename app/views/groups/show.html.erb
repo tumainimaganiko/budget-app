@@ -10,8 +10,7 @@
     <ul>
         <% @categories.each do |category| %>
           <li class="my-6">
-          <p><%= category.icon%></p>
-          <%= link_to category.name, "/groups/#{category.id}" %>
+          <p><%= category%></p>
           </li>
         <% end %>
     </ul>

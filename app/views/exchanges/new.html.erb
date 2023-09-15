@@ -1,2 +1,39 @@
-<h1>Exchanges#new</h1>
-<p>Find me in app/views/exchanges/new.html.erb</p>
+<% if user_signed_in? %>
+  <div class="flex flex-col justify-center w-full max-w-3xl gap-6 mx-auto align-center">
+  <h1 class="text-3xl text-center">Add New transanction</h1>
+  <% if @transanction.errors.any? %>
+    <div class="post-errors-box">
+      <p><%= pluralize(@transanction.errors.count, "error") %> found:</p>
+
+      <ul class="post-errors-ul">
+        <% @transanction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="flex items-center justify-end mb-6">
+
+  <%= link_to 'Back', exchanges_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
+</div>
+  <%= form_with url: "/exchanges", model: @transanction, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
+    <div class="flex flex-col w-full max-w-3xl">
+      <%= form.label :name %>
+      <%= form.text_field :name, required: true, class: 'w-full' %>
+    </div>
+    <div class="flex flex-col w-full max-w-3xl">
+      <%= form.label :amount %>
+      <%= form.number_field :amount, required: true, class: 'w-full' %>
+    </div>
+    <div class="field">
+     <%= select_tag(:category, options_for_select(current_user.groups.map { |category| [category.name, category.id] })) %>
+  </div>
+    <div class="flex justify-center w-full max-w-3xl align-center">
+      <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+  <p>Please, sign in to create a transanction item</p>
+<% end %>
