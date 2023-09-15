@@ -10,7 +10,9 @@
     <ul>
         <% @categories.each do |category| %>
           <li class="my-6">
-          <p><%= category%></p>
+          <p><%= category.exchange.name %></p>
+           <p><%= category.exchange.amount %></p>
+            <p><%= category.exchange.created_at %></p>
           </li>
         <% end %>
     </ul>
