@@ -10,8 +10,13 @@
     <ul>
         <% @categories.each do |category| %>
           <li class="my-6">
+            <% @test = 0%>
           <p><%= category.icon%></p>
+          <% @total.where(group: category).each do | item | %>
+          <% @test += item.exchange.amount %>
+          <% end %>
           <%= link_to category.name, "/groups/#{category.id}" %>
+          <p><%= @test%></p>
           </li>
         <% end %>
     </ul>
