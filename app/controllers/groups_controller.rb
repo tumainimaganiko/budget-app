@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @categories = current_user.groups.find_by(id: params[:id]).category_exchanges.exchange
+    @categories = current_user.groups.find_by(id: params[:id]).category_exchanges
+    @groups = current_user.groups.find_by(id: params[:id]);
   end
 
   def new
