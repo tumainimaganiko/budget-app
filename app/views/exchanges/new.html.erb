@@ -17,7 +17,7 @@
 
   <%= link_to 'Back', exchanges_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
 </div>
-  <%= form_with url: "/exchanges", model: @transanction, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
+<%= form_with url: group_exchanges_path , model: @transanction , class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :name %>
       <%= form.text_field :name, required: true, class: 'w-full' %>
