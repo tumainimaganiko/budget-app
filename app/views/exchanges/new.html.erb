@@ -28,7 +28,7 @@
      <%= select_tag(:category, options_for_select(current_user.groups.map { |category| [category.name, category.id] })) %>
   </div>
     <div class="submit-button actions">
-      <%= form.submit "Save"%>
+      <%= form.submit "Save", class: 'splash-second-link'%>
     </div>
   <% end %>
 </div>
