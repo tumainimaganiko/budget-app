@@ -1,11 +1,6 @@
 class ExchangesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @transanctions = current_user.exchanges
-    @current_user = current_user
-  end
-
   def new
     @transanction = Exchange.new
     @current_user = current_user
@@ -26,12 +21,11 @@ class ExchangesController < ApplicationController
         format.json { render json: @transanction.errors, status: :unprocessable_entity }
       end
     end
-  end 
+  end
 
   private
 
   def transanction_params
     params.require(:exchange).permit(:name, :amount, user: current_user)
   end
-
 end
