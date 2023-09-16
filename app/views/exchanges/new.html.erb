@@ -1,6 +1,11 @@
 <% if user_signed_in? %>
-  <div class="flex flex-col justify-center w-full max-w-3xl gap-6 mx-auto align-center">
-  <h1 class="text-3xl text-center">Add New transanction</h1>
+      <a href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" id="backe" height="16" fill="currentColor" class="bi bi-arrow-left arrow" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+    </a>
+  <div class="">
+  <h1 class="new-category-heading">New transanction</h1>
   <% if @transanction.errors.any? %>
     <div class="post-errors-box">
       <p><%= pluralize(@transanction.errors.count, "error") %> found:</p>
@@ -17,20 +22,20 @@
 
   <%= link_to 'Back', group_exchanges_path , class: "px-4 py-2 border-2 border-black cursor:pointer" %>
 </div>
-<%= form_with url: group_exchanges_path , model: @transanction , class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
-    <div class="flex flex-col w-full max-w-3xl">
+<%= form_with url: group_exchanges_path , model: @transanction , class: 'new-category' do |form| %>
+    <div class="input-div">
       <%= form.label :name %>
-      <%= form.text_field :name, required: true, class: 'w-full' %>
+      <%= form.text_field :name, required: true, class: 'input-field' %>
     </div>
-    <div class="flex flex-col w-full max-w-3xl">
+    <div class="input-div">
       <%= form.label :amount %>
-      <%= form.number_field :amount, required: true, class: 'w-full' %>
+      <%= form.number_field :amount, required: true, class: 'input-field' %>
     </div>
-    <div class="field">
+    <div class="input-div select-tag">
      <%= select_tag(:category, options_for_select(current_user.groups.map { |category| [category.name, category.id] })) %>
   </div>
-    <div class="flex justify-center w-full max-w-3xl align-center">
-      <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>
+    <div class="submit-button">
+      <%= form.submit class: '' %>
     </div>
   <% end %>
 </div>
