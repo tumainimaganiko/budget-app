@@ -9,8 +9,8 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @categories = current_user.groups.find_by(id: params[:id]).category_exchanges.order('created_at DESC')
-    @groups = current_user.groups.find_by(id: params[:id])
+    @groups = current_user.groups.includes(category_exchanges: :exchange).find_by(id: params[:id])
+    @categories = @groups.category_exchanges.order('created_at DESC')
     @categories_total = 0
   end
 
