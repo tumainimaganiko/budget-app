@@ -14,7 +14,7 @@ class ExchangesController < ApplicationController
       if new_transanction.save
         group = Group.find_by(id: params[:category])
         CategoryExchange.create(group: group, exchange: new_transanction)
-        format.html { redirect_to group_path(id: group.id) , notice: 'Transanction was successfully created.' }
+        format.html { redirect_to group_path(id: group.id), notice: 'Transanction was successfully created.' }
         format.json { render :index, status: :created, location: new_transanction }
       else
         format.html { render :new, status: :unprocessable_entity }
