@@ -53,10 +53,10 @@ This budget project is about a mobile web application where you can manage your 
 To get started with this app, you will need to have Ruby and Rails installed on your computer. Once you have Ruby and Rails installed.
 
 ## Live demo
-   [live demo]()
+   [live demo](https://budget-app-jncr.onrender.com)
 
 ## Presentation
-   [Link to video presentation]()
+   [Link to video presentation](https://www.loom.com/share/4e39674f786d401faaa2426e7f04b41b)
 
 ### Prerequisites
 
