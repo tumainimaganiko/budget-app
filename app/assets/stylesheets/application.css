@@ -38,7 +38,6 @@ img {
 .new-category a {
   text-decoration: none;
   border: 1px solid white;
-  color: black;
   position: fixed;
   bottom: 0;
   display: block;
@@ -186,7 +185,6 @@ header {
   color: #434b54;
   text-decoration: none;
 }
-
 
 .submit-button.actions {
   width: 40%;
