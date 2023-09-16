@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-condensed');
+ 
  body {
     background-color: bisque;
  }
@@ -55,4 +57,16 @@
 
  .new-category-heading {
     text-align: center;
+ }
+
+ .transanction-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+ }
+
+ .transanction-list li {
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
  }
