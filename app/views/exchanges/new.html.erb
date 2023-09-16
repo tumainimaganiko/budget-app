@@ -17,11 +17,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="flex items-center justify-end mb-6">
-
-  <%= link_to 'Back', group_exchanges_path , class: "px-4 py-2 border-2 border-black cursor:pointer" %>
-</div>
 <%= form_with url: group_exchanges_path , model: @transanction , class: 'new-category' do |form| %>
     <div class="input-div">
       <%= form.label :name %>
