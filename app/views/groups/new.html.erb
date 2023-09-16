@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <a href="/groups">
+    <a class="back-button" href="/groups">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" id="backe" height="16" fill="currentColor" class="bi bi-arrow-left arrow" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
     </svg>
@@ -19,16 +19,14 @@
   <% end %>
 
   <%= form_with url: "/groups", model: @category, class: 'new-category' do |form| %>
-    <div class="input-div">
-      <%= form.label :name %>
-      <%= form.text_field :name, required: true, class: 'input-field' %>
+    <div class="input-div field">
+      <%= form.text_field :name, required: true, class: 'input-field', placeholder: 'Name'  %>
     </div>
-    <div class="input-div">
-      <%= form.label :icon %>
-      <%= form.text_field :icon, required: true, class: 'input-field' %>
+    <div class="input-div field">
+      <%= form.text_field :icon, required: true, class: 'input-field', placeholder: 'Icon URL' %>
     </div>
-    <div class="submit-button">
-      <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>
+    <div class="submit-button actions">
+      <%= form.submit "Save"%>
     </div>
   <% end %>
 </div>

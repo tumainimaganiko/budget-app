@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-      <a href="/">
+      <a class="back-button" href="/">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" id="backe" height="16" fill="currentColor" class="bi bi-arrow-left arrow" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
     </svg>
@@ -18,19 +18,17 @@
     </div>
   <% end %>
 <%= form_with url: group_exchanges_path , model: @transanction , class: 'new-category' do |form| %>
-    <div class="input-div">
-      <%= form.label :name %>
-      <%= form.text_field :name, required: true, class: 'input-field' %>
+    <div class="input-div field">
+      <%= form.text_field :name, required: true, class: 'input-field', placeholder: 'Name' %>
     </div>
-    <div class="input-div">
-      <%= form.label :amount %>
-      <%= form.number_field :amount, required: true, class: 'input-field' %>
+    <div class="input-div field">
+      <%= form.number_field :amount, required: true, class: 'input-field', placeholder: 'Amount' %>
     </div>
-    <div class="input-div select-tag">
+    <div class="input-div select-tag field">
      <%= select_tag(:category, options_for_select(current_user.groups.map { |category| [category.name, category.id] })) %>
   </div>
-    <div class="submit-button">
-      <%= form.submit class: '' %>
+    <div class="submit-button actions">
+      <%= form.submit "Save"%>
     </div>
   <% end %>
 </div>
