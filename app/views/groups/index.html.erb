@@ -2,16 +2,12 @@
 <% if @categories.empty? %>
   <h2 class="text-center">There is no categories for now</h2>
 <% end %>
-<div class="flex items-center justify-end mb-6">
-
-  <%= link_to 'Add New Category', new_group_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
-</div>
-<div class="w-10/12 mx-auto">
-    <ul>
+<div >
+    <ul class="categories-list">
         <% @categories.each do |category| %>
           <li class="my-6">
             <% @test = 0%>
-          <p><%= category.icon%></p>
+          <img src=<%=category.icon%> class="images"  alt="Girl in a jacket" width="80" height="80">
           <% @total.where(group: category).each do | item | %>
           <% @test += item.exchange.amount %>
           <% end %>
@@ -20,4 +16,7 @@
           </li>
         <% end %>
     </ul>
+</div>
+<div class="new-category">
+  <%= link_to 'Add New Category', new_group_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
 </div>
