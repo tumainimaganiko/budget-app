@@ -6,7 +6,7 @@
 
 <h1 class='new-category-heading'>Transanctions</h1>
 <% if @categories.empty? %>
-  <h2 class="text-center">There is no categories for now</h2>
+  <h2 class="text-center">There is no transanction for now</h2>
 <% end %>
 <div class="w-10/12 mx-auto">
     <ul class="transanction-list">
@@ -17,7 +17,7 @@
         <% @categories.each do |category| %>
           <li class="">
           <p><%= category.exchange.name %></p>
-           <p><%= category.exchange.amount %></p>
+           <p class="amount">$<%= category.exchange.amount %></p>
             <p><%= category.exchange.created_at %></p>
           </li>
         <% end %>
