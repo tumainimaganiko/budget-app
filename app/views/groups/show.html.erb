@@ -13,7 +13,7 @@
        <% @categories.each do |category| %>
         <% @categories_total += category.exchange.amount%>
        <%end %>
-       <p>Total Amount <%= @categories_total %></p>
+       <p>Total Amount $<%= @categories_total %></p>
         <% @categories.each do |category| %>
           <li class="">
           <p><%= category.exchange.name %></p>
